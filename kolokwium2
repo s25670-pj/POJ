@@ -1,0 +1,26 @@
+package main;
+
+public class z2
+{
+    public static void main(String[] args)
+    {
+        String[] tablica = {"1","6","1"};
+        System.out.println(count(tablica, 1));
+    }
+
+    public static int count(String[] array, int counted)
+    {
+        String liczba = String.valueOf(counted);
+        int counter = 0;
+
+        for(int i = 0; i < array.length; i++)
+        {
+            if(array[i] == liczba)
+            {
+                counter += 1;
+            }
+        }
+        System.out.println("Zadana liczba pojawila sie " + counter + " raz/razy");
+        return -1;
+    }
+}
