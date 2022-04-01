@@ -15,7 +15,7 @@ public class S25670 extends Unit
 		this.enableStopOnWall();
 		this.enableMovement();
 		this.forward();
-				
+			//nie wiem jak sie za to zabrac	
 		while (true) 
 		{
 			if (whatIsInRange() == 3) 
