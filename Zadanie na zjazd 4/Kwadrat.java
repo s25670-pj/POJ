@@ -1,11 +1,11 @@
 class Kwadrat extends Prostokat implements MoznaWyznaczycPrzekatna {
 
-    public Kwadrat(int i, int i1) {
-        super(i, i1);
+    public Kwadrat(int p, int b) {
+        super(p, b);
     }
 
-    public Kwadrat(int i) {
-        super(i, i);
+    public Kwadrat(int p) {
+        super(p, p);
     }
 
     @Override
