@@ -1,6 +1,114 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects
 
+public class Prostokat implements MoznaWyznaczycWielokrotnoscPrzekatnej, MoznaWyznaczycWysokosc {
+
+    int bok;
+    int podstawa;
+
+    public Prostokat(int i, int i1) {
+        this.bok = i1;
+        this.podstawa = i;
+
+    }
+
+    @Override
+    public double podstawa() {
+        return podstawa;
+    }
+
+    @Override
+    public double katNachylenia() {
+        return Math.PI / 2;
+
+    }
+
+    @Override
+    public double bok() {
+        return bok;
+    }
+
+    @Override
+    public double przekatna() {
+        return Math.sqrt((bok() * bok()) + (podstawa() * podstawa()));
+    }
+
+    @Override
+    public double wysokosc() {
+        return bok();
+    }
+
+    @Override
+    public int wielokrotnoscPrzekatnej(int v){return (int)(przekatna() * v);
+    }
+
+    @Override
+    public double wielokrotnoscPrzekatnej(double v) {
+        return przekatna() * v;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MaWlasnosciRownolegloboku)) return false;
+        MaWlasnosciRownolegloboku figura = (MaWlasnosciRownolegloboku) o;
+    
+        return ((bok == figura.bok() && podstawa == figura.podstawa()) ||
+                (bok == figura.podstawa() && podstawa == figura.bok())) &&
+                this.katNachylenia() == figura.katNachylenia();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bok, podstawa);
+    }
+
+    @Override
+    public String toString() {
+        return "prostokat";
+    }
+
+}
+
+public class Kwadrat extends Prostokat implements MoznaWyznaczycPrzekatna {
+
+    public Kwadrat(int i, int i1) {
+        super(i, i1);
+    }
+
+    public Kwadrat(int i) {
+        super(i, i);
+    }
+
+    @Override
+    public String toString() {
+        return "kwadrat";
+    }
+}
+
+public interface MoznaWyznaczycWysokosc extends MaWlasnosciRownolegloboku {
+
+    double wysokosc();
+}
+
+public interface MoznaWyznaczycWielokrotnoscPrzekatnej extends MoznaWyznaczycPrzekatna {
+
+    double wielokrotnoscPrzekatnej(double v);
+    int wielokrotnoscPrzekatnej(int v);
+}
+
+public interface MaWlasnosciRownolegloboku {
+
+    double podstawa();
+    double katNachylenia();
+    double bok();
+}
+
+public interface MoznaWyznaczycPrzekatna extends MaWlasnosciRownolegloboku {
+
+    double przekatna();
+}
 
 public class Main {
 
